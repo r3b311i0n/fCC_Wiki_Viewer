@@ -1,0 +1,55 @@
+.jumbotron {
+    background-color: #ab6ada;
+}
+
+.jumbotron h1 {
+    color: white;
+    animation-name: bounceInDown;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    -webkit-animation-name: bounceInDown;
+    -webkit-animation-duration: 1.5s;
+    -webkit-animation-timing-function: ease-in;
+}
+
+@keyframes bounceInDown {
+    from {
+        transform: translateY(-255px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@-webkit-keyframes bounceInDown {
+    from {
+        -webkit-transform: translateY(-255px);
+    }
+    to {
+        -webkit-transform: translateY(0);
+    }
+}
+
+.population {
+    margin-top: 3em;
+}
+
+#search {
+    outline: none;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 0;
+    -webkit-transition-property: border-color;
+    -webkit-transition-duration: 2s;
+    transition-property: border-color;
+    transition-duration: 2s;
+}
+
+#search:hover {
+    border-color: #ab6ada;
+}
+
+.wikiSearch > .glyphicon-search {
+    opacity: 0;
+}
