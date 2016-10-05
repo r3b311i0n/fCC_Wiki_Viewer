@@ -15,18 +15,22 @@
 
 @keyframes bounceInDown {
     from {
+        opacity: 0;
         transform: translateY(-255px);
     }
     to {
+        opacity: 1;
         transform: translateY(0);
     }
 }
 
 @-webkit-keyframes bounceInDown {
     from {
+        opacity: 0;
         -webkit-transform: translateY(-255px);
     }
     to {
+        opacity: 1;
         -webkit-transform: translateY(0);
     }
 }
@@ -52,19 +56,52 @@
 
 @keyframes bounceInLeft {
     from {
+        opacity: 0;
         transform: translateX(-1440px);
     }
     to {
+        opacity: 1;
         transform: translateX(0%);
     }
 }
 
 @-webkit-keyframes bounceInLeft {
     from {
+        opacity: 0;
         transform: translateX(-1440px);
     }
     to {
+        opacity: 1;
         transform: translateX(0%);
+    }
+}
+
+.bounceOut {
+    animation-name: bounceOutLeft;
+    animation-duration: 1s;
+    -webkit-animation-name: bounceOutLeft;
+    -webkit-animation-duration: 1s;
+}
+
+@keyframes bounceOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-2000px);
+    }
+}
+
+@-webkit-keyframes bounceOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-2000px);
     }
 }
 

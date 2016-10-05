@@ -21,11 +21,24 @@ function getJson() {
         crossDomain: true,
         method: "GET",
         success: function (article) {
+            $(".queryList").children().remove();
+
             $.each(article["query"]["pages"], function (index, value) {
-                $(".queryList").append("<a target='_blank' href='" + value["canonicalurl"] + "'>" + "<li class='listPadding'>" + value["title"] + "</li></a>");
+                $(".queryList").append("<li class='listPadding'>" + "<a class='listPadding' target='_blank' href='" + value["canonicalurl"] + "'>" + value["title"] + "</a></li>");
             });
         }
     });
 }
+
+$("#search").on("keypress", function (e) {
+    if (e.which == 13) {
+        //noinspection JSJQueryEfficiency
+        $("#search").attr("disabled", "disabled");
+        $(".queryList").children().addClass("bounceOut");
+        getJson();
+        //noinspection JSJQueryEfficiency
+        $("#search").removeAttr("disabled");
+    }
+});
 
 $(document).ready(main());
