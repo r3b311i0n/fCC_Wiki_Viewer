@@ -4,6 +4,7 @@
 
 .jumbotron h1 {
     color: white;
+    cursor: default;
     animation-name: bounceInDown;
     animation-duration: 1.5s;
     animation-timing-function: ease-in;
@@ -32,6 +33,39 @@
 
 .population {
     margin-top: 3em;
+}
+
+.queryList {
+    list-style: none;
+}
+
+.listPadding {
+    font-size: 2rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: #ab6ada;
+    animation-name: bounceInLeft;
+    animation-duration: 1s;
+    -webkit-animation-name: bounceInLeft;
+    -webkit-animation-duration: 1s;
+}
+
+@keyframes bounceInLeft {
+    from {
+        transform: translateX(-1440px);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@-webkit-keyframes bounceInLeft {
+    from {
+        transform: translateX(-1440px);
+    }
+    to {
+        transform: translateX(0%);
+    }
 }
 
 #search {

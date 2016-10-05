@@ -1,4 +1,4 @@
-const api = "https://en.wikipedia.org/w/api.php?action=query&format=json&list=allpages&aplimit=30&apprefix=";
+const api = "https://en.wikipedia.org/w/api.php?action=query&format=json&origin=*&prop=info&inprop=url&generator=allpages&gapfrom=";
 
 var main = function () {
     $("#search").animate({
@@ -13,5 +13,19 @@ var main = function () {
         $(".glyphicon-search").css("opacity", 100);
     });
 };
+
+function getJson() {
+    $.ajax({
+        url: api + $("#search").val(),
+        dataType: "json",
+        crossDomain: true,
+        method: "GET",
+        success: function (article) {
+            $.each(article["query"]["pages"], function (index, value) {
+                $(".queryList").append("<a target='_blank' href='" + value["canonicalurl"] + "'>" + "<li class='listPadding'>" + value["title"] + "</li></a>");
+            });
+        }
+    });
+}
 
 $(document).ready(main());
