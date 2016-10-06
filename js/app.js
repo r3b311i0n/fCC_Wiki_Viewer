@@ -7,10 +7,10 @@ var main = function () {
         $("#search").css("width", "15em");
     });
 
-    $(".glyphicon-search").delay(2000).animate({
+    $(".glyphicon").delay(2000).animate({
         "opacity": 100
     }, 3000, function () {
-        $(".glyphicon-search").css("opacity", 100);
+        $(".glyphicon").css("opacity", 100);
     });
 };
 
@@ -31,7 +31,22 @@ function getJson() {
 }
 
 $("#search").on("keypress", function (e) {
-    if (e.which == 13) {
+    //noinspection JSJQueryEfficiency
+    if ($.trim($("#search").val()) != "") {
+        if (e.which == 13) {
+            //noinspection JSJQueryEfficiency
+            $("#search").attr("disabled", "disabled");
+            $(".queryList").children().addClass("bounceOut");
+            getJson();
+            //noinspection JSJQueryEfficiency
+            $("#search").removeAttr("disabled");
+        }
+    }
+});
+
+$(".glyphicon-search").on("click", function (e) {
+    //noinspection JSJQueryEfficiency
+    if ($.trim($("#search").val()) != "") {
         //noinspection JSJQueryEfficiency
         $("#search").attr("disabled", "disabled");
         $(".queryList").children().addClass("bounceOut");
